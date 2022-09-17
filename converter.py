@@ -42,8 +42,9 @@ def arabicToRoman(num: int) -> str:
   roman = UNITMAPPING[lengthStr][indexOfFirstNum]
 
   """
-  check if length < 1 or number is less than 1, to prevent infinite
-  recursion
+  To prevent infinite recursion
+  check if length > 1, move the cursor
+  else, return;
   """
   if length > 1:
     numStr = numStr[1:]
