@@ -30,7 +30,7 @@ def arabicToRoman(num: int) -> str:
   or number itself is greater than 3999, if true raise exception
   """
   if length > 4 or num > 3999:
-    raise Exception("Invalid input")
+    raise ValueError("Out of Limit: Invalid value input")
 
   """
   third -> using the dictionary map, find the appropriate value that 
@@ -38,19 +38,26 @@ def arabicToRoman(num: int) -> str:
   """
   intOfFirstNum = int( numStr[0] )
   indexOfFirstNum = intOfFirstNum-1
+
   roman = UNITMAPPING[lengthStr][indexOfFirstNum]
+
+  """
+  check if length < 1 or number is less than 1, to prevent infinite
+  recursion
+  """
+  if length > 1:
+    numStr = numStr[1:]
+  else:
+    return roman
 
   """
   fourth -> do step 3 - iteratively or recursively for the numbers 
   left in the string of numbers
   """
-  numbersLeft = numStr[1:]
-  
-  roman += arabicToRoman( int(numbersLeft) )
+
+  roman += arabicToRoman( int(numStr) )
 
   """
   return string
   """
   return roman
-
-print(arabicToRoman(1789))
