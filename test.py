@@ -13,11 +13,11 @@ class TestArabicToRomain(unittest.TestCase):
     self.assertEqual( arabicToRoman(1889), 'MDCCCLXXXIX' )
 
   def test_invalid_input_exception(self):
-    # check that arabicToRoman function raises excepitions 
+    # check that arabicToRoman function raises exceptions 
     # when input is a string
     with self.assertRaises(TypeError):
       arabicToRoman('4000')
-    # check that arabicToRoman function raises excepitions
+    # check that arabicToRoman function raises exceptions
     # for values greater than 3999
     with self.assertRaises(ValueError):
       arabicToRoman(4000)
